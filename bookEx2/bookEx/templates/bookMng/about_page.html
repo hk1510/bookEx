@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+About Page
+{% endblock title %}
+
+{% block sidenav %}
+{% for item in item_list %}
+<li>
+    <a href="{{ item.link }}"> {{ item.item }}</a>
+</li>
+{% endfor %}
+
+
+{% endblock sidenav %}
+
+
+{% block content %}
+<body>
+<header>
+    <h1 align="center">About The Bookshelf</h1>
+</header>
+
+The Bookshelf is a website created by and for students. It allows us to buy and sell books without incurring the fees of
+other such marketplaces. As a not-for-profit website, The Bookshelf hopes to facilitate access to lower cost textbooks
+and put more money back in the pockets of students, for the the benefit and edification of all.
+<p>
+
+<h2>Who Runs The Bookshelf?</h2>
+
+The Bookshelf was founded and edited by Henry Gonzales, Amy Guttman, Rayan Hyder, Jonathan Kan, Ted Kim, and Harshil
+Kotamreddy. They are a students at
+<a href="https://www.calstatela.edu/">California State University, Los Angeles</a>. They are responsible for the
+content of the site. <a href="https://www.calstatela.edu/faculty/prof-jiang-guo">Professor Jiang Guo</a> provided the
+backbone for this project - many thanks to you for your patience and support!
+
+</p>
+<h2>Where It Started</h2>
+
+The Bookshelf originally was founded in September 2020 by the current
+editors, while they were students of CS3337 at
+<a href="https://www.calstatela.edu/">California State University of Los Angeles</a>.
+
+<h2>What Gets Listed</h2>
+<p>
+    Most of the books included in our collection come directly from you and readers like you. These are
+    books on your bookshelves, from your courses, from your friends and family. Anyone who registers with us can list
+    their books on our site, provided they follow the site rules and <a href="https://www.acm.org/code-of-ethics">
+    general internet etiquette</a>.
+</p>
+<p>
+
+</p>
+
+<h2>Privacy Considerations</h2>
+
+We log accesses to this site with the standard data provided in
+World Wide Web requests
+(which includes, among other things, URLs accessed, time of access, the
+IP address of the site making the request, the browsing program and
+machine type (if your
+browser gives out this information), and the previous URL visited (if your
+browser gives out this information.) The identity of the user
+is not recorded.
+<p>
+    We may tabulate aggregate user statistics from our logs to better
+    understand usage of our site, and report on its usage to third parties
+    (but only in ways that do not allow specific users to be identified).
+    We may also, in the future, if a user so requests, use that
+    individual's access data to provide customized views of the site, but
+    we do not do so now.
+</p>
+<p>
+    We do <b>not</b> give out information about specific accesses or users
+    to third parties,
+    unless required by law to do so.
+    (To date, we never have been so required, to the best of the editor's
+    knowledge.)
+    The editors believe that access data collected at this site would be
+    legally protected by the same patron protections as other library access
+    data, but hasn't checked with a lawyer, or with the Libraries, about this.
+    In any case, we intend to raise
+    any appropriate legal challenges to any attempt to subpoena individual access
+    information. (Readers should be aware that the "USA Patriot Act"
+    may limit our ability to resist such requests, or inform people that such
+    requests have been made. For more about the
+    Patriot Act and libraries, see the
+    <a href="http://www.ala.org/advocacy/advleg/federallegislation/theusapatriotact">American Library Association's
+        information on this subject</a>.)
+</p>
+<p>
+    Cookies are not required to access this site. The editors make their best
+    effort to tell people when cookies are required to access books hosted
+    elsewhere that are listed by
+    this site (so that users can keep cookies turned off if they wish).
+</p>
+<p>
+    Any outside links have different privacy policies not under our control.
+</p>
+<p>
+
+</p>
+<h2>Copyrights and Permissions</h2>
+<p>
+    Links to any point in these pages are welcome, and ordinary links
+    do not require permission.
+    However, if you want to redistribute or 'mirror' substantial
+    portions of these listings or pages, or create derivative works
+    or displays based on
+    them (beyond what is clearly allowed by fair use or the inherent
+    public domain status of facts by themselves), you must abide by
+    licenses associated with them, or where no license is given,
+    obtain prior written permission. Write to the editor at the
+    address below to pursue permissions.
+</p>
+<p>
+    The editors of this page intend to respect any copyrights
+    of the authors of the books listed by the site. We will not knowingly
+    list a book that is neither online with the copyright holder's
+    permission, nor in the public domain (or otherwise legally available)
+    in the country where the online book is stored.
+    We also attempt to warn people about books that
+    are legal to access in a server's hosting country, but may be illegal
+    to access from the US (where this site is located).
+</p>
+
+
+<h2>For Further Information</h2>
+
+Further information about the site can be found by contacting any of the below editors:
+<ul>
+    <li>Henry Gonzales - <a
+            href="mailto:hgonzal5@calstatela.edu?subject= Further Instruction">hgonzal5@calstatela.edu</a></li>
+    <li>Amy Guttman - <a href="mailto:aguttma@calstatela.edu?subject= Further Instruction">aguttma@calstatela.edu</a>
+    </li>
+    <li>Rayan Hyder - <a href="mailto:rhyder2@calstatela.edu?subject= Further Instruction">rhyder2@calstatela.edu</a>
+    </li>
+    <li>Jonathan Kan - <a href="mailto:jkan5@calstatela.edu?subject= Further Instruction">jkan5@calstatela.edu</a></li>
+    <li>Ted Kim - <a href="mailto:tkim56@calstatela.edu?subject= Further Instruction">tkim56@calstatela.edu</a></li>
+    <li>Harshil Kotamreddy - <a href="mailto:hkotamr2@calstatela.edu?subject= Further Instruction">hkotamr2@calstatela.edu</a>
+    </li>
+</ul>
+If your question about the project isn't answered here, feel free to write Professor Jiang Guo at:
+<a href="mailto:jguo@calstatela.edu?subject= Further Instruction">jguo@calstatela.edu</a>.
+
+<p class="ctr">
+    <a href="/">Home</a> --
+    <a href="displaybook">Browse Books</a> --
+    <a href="register">Register</a> --
+    <a href="login">Login</a>
+</p>
+<p class="ctr">
+    <i>Edited
+        by Henry Gonzales, Amy Guttman, Rayan Hyder, Jonathan Kan, Ted Kim, and Harshil Kotamreddy
+        <br>
+        <a>@copyrights and licenses</a>
+    </i>
+</p>
+
+
+</body>
+
+{% endblock content %}

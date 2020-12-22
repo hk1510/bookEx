@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Display Books
+{% endblock title %}
+
+
+{% block sidenav %}
+{% for item in item_list %}
+<li>
+    <a href="{{ item.link }}"> {{ item.item }} </a>
+</li>
+{% endfor %}
+{% endblock sidenav %}
+
+
+{% block content %}
+<h1 align="center">Display Books</h1>
+
+<form action="{% url 'sorting' %}" method="get" style="float:center;">
+    <input type="submit" class="w3-bar-item w3-button w3-black w3-right" value="Sort Books">
+    <select name="choice" class="w3-bar-item w3-input w3-card w3-left">
+        <option disabled selected hidden>Choose Sorting Method</option>
+        <option value="price">Price: Low-To-High</option>
+        <option value="-price">Price: High-To-Low</option>
+        <option value="publishdate">Date: Old-To-New</option>
+        <option value="-publishdate">Date: New-To-Old</option>
+        <option value="name">Title: A-To-Z</option>
+        <option value="-name">Title: Z-To-A</option>
+    </select>
+</form>
+<br>
+<br>
+<br>
+<br>
+<table align="center" border="2" width="700">
+    {% for book in books %}
+    <tr>
+        <td>
+            <a href="{% url 'book_detail' book.id %}">
+                {{book.name}}
+            </a>
+        </td>
+        <td>
+            <img src="{% static book.pic_path %}" width="100" height="150">
+        </td>
+        <td>
+            {{ book.publishdate }}
+        </td>
+        <td>
+            {{ book.username }}
+        </td>
+        <td>
+            ${{ book.price }}
+        </td>
+        <td>
+            {% if book.purchased is not True %}
+            Not Sold
+            {% elif book.purchased is True %}
+            Sold
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock content %}
