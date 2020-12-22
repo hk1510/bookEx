@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        Title
+        {% endblock title %}
+    </title>
+    <link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div id="wrapper">
+    <header id="header">
+        <div id="logo">
+            <a href="/"><img src="{% static 'the_bookshelf_logo.jpg' %}" width="325" height="45" alt=""/></a>
+            <span style="float: right;">
+                {% if user.is_authenticated %}
+                    Hello, {{ user.username }}!
+                    <a href="{% url 'shopping_cart' %}"> Shopping Cart</a>
+                {% else %}
+                    Not logged in.
+                    <a href="{% url 'login' %}?next/">Login</a>
+                {% endif %}
+            </span>
+        </div>
+
+        <div class="w3-bar w3-small w3-border">
+            <a href="/" class="w3-bar-item w3-button">Home</a>
+            {% if user.is_authenticated %}
+            <a href="/displaybooks" class="w3-bar-item w3-button">Buy</a>
+            <a href="/postbook" class="w3-bar-item w3-button">Sell</a>
+            <a href="/requestbook" class="w3-bar-item w3-button">Request</a>
+            <a href="/displayusers" class="w3-bar-item w3-button">Users</a>
+            {% else %}
+            <a href="/displaybooks" class="w3-bar-item w3-button">Browse</a>
+            {% endif %}
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">About</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="/about_page" class="w3-bar-item w3-button">About This Project</a>
+                    <a href="/about_us" class="w3-bar-item w3-button">Who We Are</a>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Account</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="/myprofile" class="w3-bar-item w3-button">My Profile</a>
+                    <a href="/mybooks" class="w3-bar-item w3-button">My Books</a>
+                    <a href="{% url 'logout' %}?next=/" class="w3-bar-item w3-button">Logout</a>
+                </div>
+            </div>
+            {% endif %}
+            <form action="{% url 'searchbar' %}" id="search-form" method="get">
+                        <button type="submit" class="w3-bar-item w3-button w3-grey w3-right">Search</button>
+                        <input type="text" class="w3-bar-item w3-input w3-card w3-right" name="q" id="id_q" placeholder="Search..."/>
+            </form>
+        </div>
+
+    </header>
+
+    <section id="main">
+        {% block content %}
+        Hello
+        {% endblock content %}
+    </section>
+    <footer id="footer">
+        CS 3337 Django Project
+    </footer>
+</div>
+</body>
+</html>

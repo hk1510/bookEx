@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Book Detail
+{% endblock title %}
+
+{% block sidenav %}
+    {% for item in item_list %}
+    <li>
+        <a href="{{ item.link }}">{{ item.item }}</a>
+    </li>
+    {% endfor %}
+{% endblock sidenav %}
+
+{% block content %}
+<h1 align="center"> {{ book.name }} </h1>
+<table align="center" border="2" width="700" style="margin-bottom:20;">
+        <tr>
+            <td>
+                <a href="{% url 'book_detail' book.id %}">
+                    {{ book.name }}
+                </a>
+            </td>
+            <td>
+                {{ book.publishdate }}
+            </td>
+            <td>
+                {{ book.username }}
+            </td>
+            <td>
+                <img src="{% static book.pic_path %}" width = "100" height="150">
+            </td>
+            <td>
+                ${{ book.price }}
+            </td>
+            <td>
+                {% if book.purchased is True %}
+                    Sold
+               {% elif book.purchased is not True %}
+                   {% if request.user in book.shopping_cart_user.all %}
+                       <a href="{% url 'remove_shopping_cart' book.id %}">
+                           Remove from Shopping Cart
+                       </a>
+                   {% elif request.user not in book.shopping_cart_user.all %}
+                       <a href="{% url 'add_to_shopping_cart' book.id %}">
+                           Add to Shopping Cart
+                       </a>
+                   {% endif %}
+               {% endif %}
+            </td>
+        </tr>
+</table>
+<h1> Customer reviews: </h1>
+<table align="center" border="2" width="700" style="margin-bottom:20px">
+        {% for review in reviews %}
+        <tr>
+            <td>
+                    {{ review.username }}
+            </td>
+            <td>
+                {{ review.description }}
+            </td>
+            <td>
+                {{ review.publishdate}}
+            </td>
+        </tr>
+        {% endfor %}
+</table>
+<h1> Write a review: </h1>
+<form action="" method="post">
+        <table align="center" width="500" style="margin-bottom:20px">
+             {{form.as_table}}
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Post">
+                </td>
+            </tr>
+        </table>
+    {% csrf_token %}
+    </form>
+{% endblock content %}

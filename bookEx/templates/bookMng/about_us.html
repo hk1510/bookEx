@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Who We Are
+{% endblock title %}
+
+{% block sidenav %}
+{% for item in item_list %}
+<li>
+    <a href="{{ item.link }}"> {{ item.item }}</a>
+</li>
+{% endfor %}
+
+
+{% endblock sidenav %}
+
+
+{% block content %}
+<header>
+    <h1 align="center">Who We Are</h1>
+</header>
+
+We are Computer Science students in Professor Guo's Fall 2020 CS3337 Software Engineering course at
+<a href="https://www.calstatela.edu/">California State University, Los Angeles</a>.
+<p>
+We are Group 2: <br>Henry Gonzales, Amy Guttman, Rayan Hyder, Jonathan Kan, Ted Kim, and Harshil Kotamreddy.
+</p>
+
+<h2>Who Else Works With Us</h2>
+<p>
+    The Bookshelf is developed in collaboration with <a href="https://www.calstatela.edu/faculty/prof-jiang-guo">
+    Professor Jiang Guo</a> and the <a href="https://www.calstatela.edu/ecst/cs">Computer Science Department</a> of
+    <a href="https://www.calstatela.edu/">California State University, Los Angeles</a>. They are the ones who provide
+    the structure, rubric, and learning outcomes for both this project and the course.
+</p>
+
+
+</body>
+
+{% endblock content %}
